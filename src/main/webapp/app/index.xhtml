@@ -14,7 +14,11 @@
 
         <ui:repeat value="#{bookBean.books}" var="book">
             <p>#{book.id} - #{book.title} - #{book.author} - #{book.year}</p>
+            <h:form>
+                    <h:inputText value="#{bookBean.term}"/>
+            <h:commandButton value="SEARCH" action="#{bookBean.doSearc}"/>
         </ui:repeat>
+    </h:form>
 <!--cikl povtora-->
         <!--@ - #  -  obroshenije k binam-->
     </ui:define>
