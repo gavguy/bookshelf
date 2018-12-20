@@ -17,13 +17,13 @@ public class UserEntity implements Serializable {
     @GeneratedValue
 //    primary key = null,
     private Long id;
-    @Column(name = "login_name", length = 100, unique = true)
+    @Column(name = "login_name", length = 100, unique = true, nulleble = false)
 //    u columm naz. login . max-100 simvolov. i ne takoje imja
     private String loginName;
-    @Column(name = "password_hash")
+    @Column(name = "password_hash", nulleble = false)
 //    ? dlina max 255 po umolcaniju
     private String passwordHash;
-    @Column(name = "role_name")
+    @Column(name = "role_name", nulleble = false)
     @Enumerated(EnumType.STRING)
     private Role roleName;
 
