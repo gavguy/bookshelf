@@ -12,14 +12,18 @@ import java.util.List;
 @Named
 @SessionScoped
 public class BookBean implements Serializable {
-
     @PersistenceContext
     private EntityManager em;
-
     private String term;
 
     public List<BookEntity> getBooks() {
-        return em.createQuery("select b from Book b", BookEntity.class).getResultList();
+        if (term == null) {
+            return em.createQuery("select b from Book b", BookEntity.class).getResultList();
+        } else {
+            return em.createQuery("select b from Book b where b.title like :term", BookEntity.class)
+                    .setParameter("term", "%" + term.toLowerCase() + "%")
+                    .getResultList();
+        }
     }
 
     public String getTerm() {
@@ -28,5 +32,9 @@ public class BookBean implements Serializable {
 
     public void setTerm(String term) {
         this.term = term;
+    }
+
+    public void doSearch() {
+        System.out.println("Searching");
     }
 }
