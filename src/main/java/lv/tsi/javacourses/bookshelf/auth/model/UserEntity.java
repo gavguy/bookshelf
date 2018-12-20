@@ -6,6 +6,7 @@
 
 package lv.tsi.javacourses.bookshelf.auth.model;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -17,13 +18,13 @@ public class UserEntity implements Serializable {
     @GeneratedValue
 //    primary key = null,
     private Long id;
-    @Column(name = "login_name", length = 100, unique = true, nulleble = false)
+    @Column(name = "login_name", length = 100, unique = true, nullable = false)
 //    u columm naz. login . max-100 simvolov. i ne takoje imja
     private String loginName;
-    @Column(name = "password_hash", nulleble = false)
+    @Column(name = "password_hash", nullable = false)
 //    ? dlina max 255 po umolcaniju
     private String passwordHash;
-    @Column(name = "role_name", nulleble = false)
+    @Column(name = "role_name", nullable = false)
     @Enumerated(EnumType.STRING)
     private Role roleName;
 
