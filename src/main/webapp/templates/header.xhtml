@@ -13,21 +13,21 @@
             <ui:fragment rendered="#{request.isUserInRole('USER')}">
                 <li><h:link value="User space" outcome="/app/index.xhtml"/></li>
             </ui:fragment>
+
             <ui:fragment rendered="#{request.isUserInRole('MANAGER')}">
                 <li><h:link value="Manager space" outcome="/manage/index.xhtml"/></li>
             </ui:fragment>
+
             <ui:fragment rendered="#{request.isUserInRole('ADMIN')}">
                 <li><h:link value="Admin space" outcome="/admin/index.xhtml"/></li>
-            </ui:fragment>
-
-            <ui:fragment rendered="#{request.isUserInRole('USERS')}">
-                <li><h:link value="USERS" outcome="/admin/index.xhtml"/></li>
+                <li><h:link value=" REGISTERED_USERS" outcome="/admin/user-list.xhtml"/></li>
             </ui:fragment>
 
             <ui:fragment rendered="#{empty currentUser.user}">
                 <li><h:link value="Login" outcome="/app/index.xhtml"/></li>
                 <li><h:link value="Register" outcome="/registration.xhtml"/></li>
             </ui:fragment>
+
             <ui:fragment rendered="#{not empty currentUser.user}">
                 <li><h:commandLink value="Logout" action="#{loginBean.logout}"/></li>
             </ui:fragment>
