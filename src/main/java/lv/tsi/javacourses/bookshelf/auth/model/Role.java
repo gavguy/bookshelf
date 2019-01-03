@@ -9,5 +9,8 @@ package lv.tsi.javacourses.bookshelf.auth.model;
 public enum Role {
     USER,
     MANAGER,
-    ADMIN
+    ADMIN;
+
+    public static class UserBean {
+    }
 }
